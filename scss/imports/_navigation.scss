@@ -1,0 +1,87 @@
+nav {
+  
+
+  ul {
+    // display: none;
+    //hw 1. remove jump on rollup: make nav ul absolute by default
+    position: absolute;
+    transform: translateY(-500px);
+    max-height: 1px;
+    opacity: 0;
+    transition: all .5s linear;
+    @media (min-width: $break-sm){
+      transform: translateY(0px);
+      max-height: 100%;
+      opacity: 1;
+      //hw 3: Extend menu bar across page
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      /*justify-content: space-around; */
+      justify-content: flex-start;
+      background: $link;
+      text-align: center;
+    }
+    
+  }
+  li {
+    background: $light-gray;
+    border-bottom: 1px solid #fff;
+    padding: 1rem;
+    @media (min-width: $break-sm){
+      background: $link;
+      flex-grow: 1;
+      max-width: 8%;
+      border-bottom: none;
+      padding: 0;
+
+      &:hover {
+        background: $light-gray; /* $text */
+      }
+    }
+  }
+  a {
+    // padding: 0.5rem;
+    @media (min-width: $break-sm){
+      color: #fff;
+      display: inline-block; //block;
+      padding: 1rem;
+    }
+    &:hover {
+      color: #fff;
+    }
+  }
+  #pull {
+    display: flex;
+    background-color: $link;
+    height: 32px;
+    padding-top: 12px;
+    padding-left: 12px;
+    @media (min-width: $break-sm){
+      //display: flex;
+      //display: inline-block;
+      display: none;
+    }
+  }
+  #pull:before {
+    content: '';
+    background: url('../img/nav-icon.png') no-repeat;
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    background-size: cover;
+  }
+}
+
+.show-nav nav ul {
+      
+  display: flex;
+  flex-direction: column;
+  //hw 1. remove jump on rollup: move to default for nav ul
+  //position: absolute; //
+  width: 100%;
+  transform: translateY(0);
+  max-height: 1000px;
+  opacity: 1;
+  
+}
